@@ -1,19 +1,33 @@
 {
-    "name": "Refer and Earn Python Telegram BoT",
-    "description": "A Refer and Earn telegram bot.",
-    "repository": "https://github.com/fadilniju",
-    "keywords": [
-       
-        "telegram bot",
-        "pyrogram"
-    ],
-    "env": {
-        "BOT_TOKEN": {
-            "description": "Your Bot token from @Botfather"
-        },
-    "buildpacks": [
-        {
-            "url": "heroku/python"
-        }
-    ]
+  "name": "referandearnnkbot",
+  "description": "bot description goes here",
+  "repository": "https://github.com/Narayanpurohit/python-refer-and-earn-Bot",
+  "image": "python",
+  "addons": [
+    "heroku-postgresql"
+  ],
+  "config": {
+    "BOT_TOKEN": {
+      "description": "Token for your Telegram bot",
+      "required": true
+    },
+    "PAYMENT_CHANNEL": {
+      "description": "Payment channel for withdrawals",
+      "required": true
+    },
+    "OWNER_ID": {
+      "description": "Owner's Telegram ID",
+      "required": true
+    },
+    "CHANNELS": {
+      "description": "List of channels to be checked",
+      "required": true
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ],
+  "stack": "heroku-20"
 }
