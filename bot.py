@@ -53,7 +53,7 @@ def ask_user_id_for_balance(message):
         user = str(user_id)
 
         # Assuming the user input is the target user's ID
-        target_user_id = message.text
+        target_user_id = int(message.text)
 
         bot.send_message(user_id, "_⚠️ Enter the amount to be added to the user's wallet._", parse_mode="Markdown")
 
