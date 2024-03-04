@@ -6,9 +6,9 @@ import telebot
 ##TOKEN DETAILS
 TOKEN = "TRON"
 
-BOT_TOKEN = "BOT_TOKEN"
+BOT_TOKEN = "6835518680:AAGKOTwJlWhkpt4Qsu6IIf7UPgzn3E97sTw"
 PAYMENT_CHANNEL = "@jn_bots" #add payment channel here including the '@' sign
-OWNER_ID = 1107159694 #write owner's user id here.. get it from @MissRose_Bot by /id
+OWNER_ID = 5597521952 #write owner's user id here.. get it from @MissRose_Bot by /id
 CHANNELS = ["@jn_bots"] #add channels to be checked here in the format - ["Channel 1", "Channel 2"] 
               #you can add as many channels here and also add the '@' sign before channel username
 Daily_bonus = 0.001 #Put daily bonus amount here!
@@ -29,11 +29,68 @@ bonus = {}
 
 def menu(id):
     keyboard = telebot.types.ReplyKeyboardMarkup(True)
-    keyboard.row('🆔 Account', keyboard.row('Views')
+    keyboard.row('🆔 Account')
     keyboard.row('🙌🏻 Referrals', '🎁 Bonus', '💸 Withdraw')
     keyboard.row('⚙️ Set Wallet', '📊Statistics')
     bot.send_message(id, "*🏡 Home*", parse_mode="Markdown",
                      reply_markup=keyboard)
+
+
+
+@bot.message_handler(commands=['add'])
+def add_balance(message):
+    user_id = message.chat.id
+    user = str(user_id)
+
+  
+
+    bot.send_message(user_id, "_⚠️ Enter the user ID for whom you want to add balance._", parse_mode="Markdown")
+    bot.register_next_step_handler(message, ask_user_id_for_balance)
+
+def ask_user_id_for_balance(message):
+    try:
+        user_id = message.chat.id
+        user = str(user_id)
+
+        # Assuming the user input is the target user's ID
+        target_user_id = message.text
+
+        bot.send_message(user_id, "_⚠️ Enter the amount to be added to the user's wallet._", parse_mode="Markdown")
+
+        # Store the target user ID for the next step
+        data['temp']['target_user_id'] = target_user_id
+        bot.register_next_step_handler(message, ask_amount_for_balance)
+    except:
+        bot.send_message(user_id, "Error processing user ID. Please try again.")
+
+def ask_amount_for_balance(message):
+    try:
+        user_id = message.chat.id
+        user = str(user_id)
+
+        # Assuming the user input is the amount to be added
+        amount = float(message.text)
+
+        # Get the target user ID from the stored data
+        target_user_id = data['temp']['target_user_id']
+
+        # Add the amount to the target user's balance
+        data['balance'][target_user_id] += amount
+
+        # Notify the user about the successful addition
+        bot.send_message(user_id, f"_✅ Successfully added {amount} {TOKEN} to the user's wallet (ID: {target_user_id})._", parse_mode="Markdown")
+
+        # Clear the temporary data
+        data['temp'] = {}
+
+        # Save the changes to the data file
+        json.dump(data, open('users.json', 'w'))
+    except:
+        bot.send_message(user_id, "Error processing the amount. Please try again.")
+
+# ... (Other parts of your code)
+
+
 
 @bot.message_handler(commands=['start'])
 def start(message):
