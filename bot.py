@@ -60,8 +60,9 @@ def ask_user_id_for_balance(message):
         # Store the target user ID for the next step
         data['temp']['target_user_id'] = target_user_id
         bot.register_next_step_handler(message, ask_amount_for_balance)
-    
-
+    except:
+        bot.send_message(user_id, "Error processing user ID. Please try again.")
+   
 def ask_amount_for_balance(message):
     try:
         user_id = message.chat.id
