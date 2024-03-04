@@ -29,7 +29,7 @@ bonus = {}
 
 def menu(id):
     keyboard = telebot.types.ReplyKeyboardMarkup(True)
-    keyboard.row('🆔 Account')
+    keyboard.row('🆔 Account', keyboard.row('Views')
     keyboard.row('🙌🏻 Referrals', '🎁 Bonus', '💸 Withdraw')
     keyboard.row('⚙️ Set Wallet', '📊Statistics')
     bot.send_message(id, "*🏡 Home*", parse_mode="Markdown",
@@ -207,7 +207,7 @@ def send_text(message):
 
         keyboard = telebot.types.ReplyKeyboardMarkup(True)
         keyboard.row('🚫 Cancel')
-        send = bot.send_message(message.chat.id, "_⚠️Send your TRX Wallet Address._",
+        send = bot.send_message(message.chat.id, "_⚠️Send your UPI Wallet Address._",
                                 parse_mode="Markdown", reply_markup=keyboard)
         # Next message will call the name_handler function
         bot.register_next_step_handler(message, trx_address)
