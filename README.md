@@ -1,14 +1,15 @@
-# python-refer-and-earn-Bot
-Simple Python Refer and Earn Bot with deploy to Heroku support 
+<h1 align="center">Hi 👋, I'm Jnbots</h1>
+<h3 align="center">A passionate frontend developer from India</h3>
 
-1-Fork this Repository 
-2 - Edit the Bot_Token,Channel Usernames and other things you want 
-3 - Create a New app on Heroku.com and Connect to Your Forked Repo through GitHub Pipeline
+<p align="left"> <img src="https://komarev.com/ghpvc/?username=jnbots&label=Profile%20views&color=0e75b6&style=flat" alt="jnbots" /> </p>
 
-<br/>
-You can deploy this ASP.Net MVC website on Heroku server by clicking below button
-<br/>
-<br/>
-<a href="https://heroku.com/deploy?template=https://github.com/fadilniju/python-refer-and-earn-Bot">
-  <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
-</a>
+- 🔭 I’m currently working on **Smm bot**
+
+- 🌱 I’m currently learning **Python**
+
+<h3 align="left">Connect with me:</h3>
+<p align="left">
+</p>
+
+<h3 align="left">Languages and Tools:</h3>
+<p align="left"> <a href="https://www.python.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/> </a> </p>
